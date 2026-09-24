@@ -141,7 +141,7 @@ with st.sidebar:
         "Emission factor (kg CO2 / lít nhiên liệu)", value=2.68, step=0.01, format="%.2f"
     )
 
-    run_btn = st.button("Chạy tối ưu", type="primary", use_container_width=True)
+    run_btn = st.button("Chạy tối ưu", type="primary", width='content')
 
 st.divider()
 
