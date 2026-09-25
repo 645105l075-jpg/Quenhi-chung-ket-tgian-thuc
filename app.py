@@ -37,7 +37,7 @@ from data_generator import DemoConfig, generate_demo_data, load_points_from_data
 from clustering import run_clustering_cvrp, split_time_budget
 from dynamic_routing import DynamicRoutingEngine, GPSTrackerConfig, interpolate_along_route
 from optimizer import OptimizeConfig, solve_cvrp, solve_cvrp_with_auto_scaling
-from routing import DEFAULT_OSRM_BASE_URL, OSRMError, check_point_count_limit, get_osrm_matrices, get_osrm_route_geometry
+from ors_routing import DEFAULT_OSRM_BASE_URL, OSRMError, check_point_count_limit, get_osrm_matrices, get_osrm_route_geometry, get_osrm_matrices_safe
 from waste_streams import WASTE_STREAMS, build_stream_problem, run_stream_optimization, aggregate_kpi
 from simulation import (
     FleetSimulator, RouteLeg, build_route_legs, format_hhmm,
@@ -46,7 +46,7 @@ from simulation import (
 )
 
 
-def get_osrm_matrices_safe(coords, base_url=DEFAULT_OSRM_BASE_URL, batch_size=4, timeout=60):
+def ors_routing(coords, base_url=DEFAULT_OSRM_BASE_URL, batch_size=4, timeout=60):
     """
     Lấy ma trận OSRM theo BLOCK x BLOCK để tránh HTTP 414.
 
